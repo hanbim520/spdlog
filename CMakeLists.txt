@@ -126,6 +126,12 @@ if(MSVC)
     option(SPDLOG_MSVC_UTF8 "Enable/disable msvc /utf-8 flag required by fmt lib" ON)
 endif()
 
+set(SPDLOG_MSVC_UTF8 ON)
+
+if(MSVC)
+    add_compile_options(/utf-8)
+endif()
+
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
     option(SPDLOG_CLOCK_COARSE "Use CLOCK_REALTIME_COARSE instead of the regular clock," OFF)
 else()
